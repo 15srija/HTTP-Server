@@ -6,10 +6,9 @@ int i;
 char message[1000];
 while(1)
 {	
-i=fscanf(fp,"%[^\n]",message);
+i=fscanf(fp,"%[^\n]\n",message);
 if(i==EOF)
 break;
 strcat(filecontent,message);
 }
-i++;
 }

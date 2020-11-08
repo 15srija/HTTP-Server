@@ -53,7 +53,7 @@ strcat(final,s);
 void contentlen(char final[])
 {
 char conlen[100];
-sprintf(conlen,"Content-Length: %d bytes \n",200);
+sprintf(conlen,"Content-Length: %d\n",200);
 strcat(final,conlen);
 }
 void contenttype(char final[])
@@ -72,7 +72,7 @@ char lm[1024];
 int x,y;
 struct tm *foo;
 struct stat attrib;
-stat("demo.txt", &attrib);
+stat("index.html", &attrib);
 foo = gmtime(&(attrib.st_mtime));
 x=foo->tm_wday;
 y=foo->tm_mon;
@@ -80,7 +80,7 @@ char M[30];
 char W[30];
 strcpy(M,month(y));
 strcpy(W,week(x));
-sprintf(lm,"last modified: %s,%d %s %d %d:%d:%d GMT \n",W,foo->tm_mday,M,foo->tm_year+1900,foo->tm_hour,foo->tm_min,foo->tm_sec);
+sprintf(lm,"Last-Modified: %s,%d %s %d %d:%d:%d GMT \n",W,foo->tm_mday,M,foo->tm_year+1900,foo->tm_hour,foo->tm_min,foo->tm_sec);
 strcat(final,lm);
 }
 char * month(int m)
@@ -89,25 +89,25 @@ switch(m)
 {
 case 1:
 
-return "January";
+return "Jan";
 
 break ;
 
 case 2:
 
-return "February";
+return "Feb";
 
 break ;
 
 case 3:
 
-return "March"  ;
+return "Mar"  ;
 
 break ;
 
 case 4:
 
-return "April" ;
+return "Apr" ;
 
 break ;
 
@@ -119,43 +119,43 @@ break ;
 
 case 6:
 
-return "June"  ;
+return "Jun"  ;
 
 break ;
 
 case 7:
 
-return "July"  ;
+return "Jul"  ;
 
 break ;
 
 case 8:
 
-return "August" ;
+return "Aug" ;
 
 break ;
 
 case 9:
 
-return "September";
+return "Sep";
 
 break ;
 
 case 10:
 
-return "October";
+return "Oct";
 
 break ;
 
 case 11:
 
-return "November";
+return "Nov";
 
 break ;
 
 case 12:
 
-return "December";
+return "Dec";
 
 break;
 
@@ -167,25 +167,25 @@ char * week(int n)
 switch(n)
 {
         case 1: 
-            return "Monday";
+            return "Mon";
             break;
         case 2: 
-            return "Tuesday";
+            return "Tue";
             break;
         case 3: 
-            return "Wednesday";
+            return "Wed";
             break;
         case 4: 
-            return "Thursday";
+            return "Thu";
             break;
         case 5: 
-            return "Friday";
+            return "Fri";
             break;
         case 6: 
-            return "Saturday";
+            return "Sat";
             break;
         case 0: 
-            return "Sunday";
+            return "Sun";
             break;
         default: 
             printf("Invalid input!");

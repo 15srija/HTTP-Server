@@ -45,6 +45,7 @@ return 1;
 }
 printf("bind done\n");
 listen(socket_desc,3);
+while(1){
 printf("waiting for incoming connections...\n");
 clientLen=sizeof(struct sockaddr_in);
 sock=accept(socket_desc,(struct sockaddr*)&client,(socklen_t*)&clientLen);
@@ -65,14 +66,7 @@ printf("recv failed");
 char response[10000];
 char final[400];
 attach(response);
-checkstatus(response);
-dateandtime(response);
-serverused(response);
-contentlen(response);
-contenttype(response);
-connection(response);
-lastmodified(response);
-//strcat(final,response);
+strcat(response,"\n");
 FILE *fp;
 fp=fopen("index.html","r");
 array(fp,response);
@@ -80,6 +74,7 @@ printf("response:%s",response);
 int total=sizeof((response)-1);
 if(sock>0)
 	send(sock,response,strlen(response),0);
+	}
 return 0;
 }
 
